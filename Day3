@@ -1,0 +1,56 @@
+print("""
+ 
+                 _
+                ;`',
+                `,  `,
+                 ',   ;   ,,-""==..,
+                  \    ','          \
+          ,-""'-., ;    '    __.-="-.;
+        ," ,,_    "V      _."
+       ;,'   ''-,          "=--,_
+              ,-''    _  _       `,
+             /   ,.-+(_)(_)�--.,   ;
+            ,'  /   ; (_)       `\ ,
+            ; ,/    ;._.;         ;
+            !,'     ;   ;
+            V'      ;   ;
+                    ;._.;
+                    ;   ;
+                    ;   ;        ~
+     ~              ;._.;
+               ~    ;   ;
+                   .�   `.                ~
+             __,.--;.___.;--.,___
+       _,,-""      ;     ;       ""-,,_
+   .-��            ;     ;             ``-.
+  ",              �       `               ,"        ~
+    "-_                                _-"
+~       ``----..,_          __,,..bmw-�
+                  ```''''���                  ~
+                              ~
+             ~
+
+
+""")
+
+print("Welcome to Treasure Island. \nYour mission is to fidn the treasure ")
+direction=input("You\'re at a cross road. Where you want to go ? \n Type 'left' or 'right' ").lower()
+if direction =="left":
+    decision1=input("You\'ve come to a lake, there is an island in the midle of the lake. " \
+    "You have two options: 'swim' or 'wait' choose wisely " ).lower()
+    if decision1=='wait':
+        decision2=input("You\'re in the last part of the game. There is a house with 3 doors." \
+        " One is red one is yellow and the last one is blue." \
+        " Which colour do you choose? ").lower()
+        if decision2=="red":
+            print("It\'s a room full of cows. Game over")
+        elif decision2=="blue":
+            print("You entered in a room full of rats. Game over")
+        elif decision2=="yellow":
+            print("You won!!")
+        else:
+            print("You picked a room that doesn\'t elist. Game over")
+    else:
+        print("You got attached by an angry cow. Game over")
+else:
+    print("You fell in to a hole. Game over")
