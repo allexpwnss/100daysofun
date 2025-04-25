@@ -1,0 +1,20 @@
+import random
+
+listoptions=["Rock","Paper","Scissors"]
+user_pick=int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors \n"))
+print(listoptions[user_pick])
+computer_pick=random.randint(0,2)
+
+print("Computer chose")
+print(listoptions[computer_pick])
+
+if user_pick == 0 and computer_pick == 2:
+    print("You win!")
+elif computer_pick == 0 and  user_pick == 2:
+    print("You lose!")
+elif computer_pick > user_pick:
+    print("You Lose!")
+elif user_pick > computer_pick:
+    print("You win!")
+elif computer_pick == user_pick:
+    print("It\'s a draw")
