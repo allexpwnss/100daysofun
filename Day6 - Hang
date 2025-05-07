@@ -1,5 +1,5 @@
 import random
-# Ascii for the game in the correct order.
+#Asci for the game in correct order.
 stages= ['''
 +---+
   |   |
@@ -85,7 +85,8 @@ correct_letters=[]
 while not game_over:
 
     guess= input(("Please guess the letter :")).lower()
-
+    if guess in correct_letters:
+        print(f"You've already guessed {guess}")
     display = ""
     for letter in chose_word:
         if letter == guess:
@@ -100,12 +101,16 @@ while not game_over:
 
     if guess not in chose_word:
         lives-=1
+        print(f"You guessed {guess}, that\'s not in the word. You lose a life.")
         if lives == 0:
             game_over=True
-            print("You lose.")
+            print(f"You lose.the word what you tried to guess was: {chose_word}")
+
     if "_" not in display:
         game_over = True
         print("You win")  
-        
+
     #final print.
     print(stages[lives])
+
+
