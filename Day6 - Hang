@@ -1,0 +1,111 @@
+import random
+# Ascii for the game in the correct order.
+stages= ['''
++---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''','''
+=========
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''','''
+=========
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''','''
+=========
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''','''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''','''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''']
+
+
+lives=6
+
+#Player inpus + list
+player1=input("Please say a world: ")
+
+word_list=[]
+word_list.append(player1)
+chose_word = random.choice(word_list)
+
+
+
+placeholder = " "
+
+word_len=len(chose_word)
+
+for positions in range(word_len):
+    placeholder+= "_"
+
+print(placeholder)
+
+game_over =False
+
+correct_letters=[]
+
+# While logic.
+
+while not game_over:
+
+    guess= input(("Please guess the letter :")).lower()
+
+    display = ""
+    for letter in chose_word:
+        if letter == guess:
+            display+= letter
+            correct_letters.append(guess)
+        elif letter in correct_letters:
+            display+=letter
+        else:
+            display+="_"
+
+    print(display)
+
+    if guess not in chose_word:
+        lives-=1
+        if lives == 0:
+            game_over=True
+            print("You lose.")
+    if "_" not in display:
+        game_over = True
+        print("You win")  
+        
+    #final print.
+    print(stages[lives])
