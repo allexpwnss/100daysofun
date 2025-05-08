@@ -1,0 +1,51 @@
+#logo generated with chatgpt
+
+logo = r"""
+   _____                          _               _____ _       _             
+  / ____|                        | |             / ____| |     | |            
+ | |     __ _ ___  ___ ___   ___| |__   ___ _ __| |    | |_   _| | ___  ___   
+ | |    / _` / __|/ __/ _ \ / __| '_ \ / _ \ '__| |    | | | | | |/ _ \/ __|  
+ | |___| (_| \__ \ (_| (_) | (__| | | |  __/ |  | |____| | |_| | |  __/\__ \  
+  \_____\__,_|___/\___\___/ \___|_| |_|\___|_|   \_____|_|\__,_|_|\___||___/  
+                                                                             
+                        C A E S A R   C I P H E R   W R I T E R              
+"""
+
+print(logo)
+
+
+alphabet =['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+ 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+
+#function with logic
+
+def caesar(original_text,shift_amount,encode_or_decode):
+    output_text=""
+
+    if encode_or_decode =="decode":
+        shift_amount *= -1
+
+    for letter in original_text:
+        if letter not in alphabet:
+            output_text+=letter
+        else:
+            shifter_position= alphabet.index(letter) + shift_amount
+            shifter_position= shifter_position%len(alphabet)
+            output_text+=alphabet[shifter_position]
+    print(f"here is the {encode_or_decode}d results: {output_text}")
+
+should_continue=True
+
+#while loop -- check condition to make the game repeat based on input 
+
+while should_continue:
+    direction=input("type 'encode' to encrypto ,type 'decode' to decrypt: \n").lower()
+    text =input("type your message: \n").lower()
+    shift=int(input("Type the sift number: \n "))
+
+    caesar(text,shift,direction)
+
+    restart =input("Type 'yes' if you want to go again, or 'no' to stop the game ").lower()
+    if restart =='no':
+        should_continue=False
+        print("Goodbye")
