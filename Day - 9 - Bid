@@ -1,0 +1,31 @@
+import os
+
+def clear_screen():
+    
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+# Dictionary to store bidders
+bids = {}
+
+def get_bid():
+    name = input("What's your name? : ")
+    while True:
+        try:
+            value = int(input("What's the value? : $"))
+            return name, value
+        except ValueError:
+            print("Please enter a valid number.")
+
+while True:
+    bidder_name, bidder_value = get_bid()
+    bids[bidder_name] = bidder_value
+    
+    more_bidders = input("Are there any other bidders? Type 'yes' or 'no' : ").lower()
+    clear_screen()
+    
+    if more_bidders != 'yes':
+        break
+
+# Determine the highest bidder
+winner = max(bids, key=bids.get)
+print(f"The winner is {winner} with a bid of ${bids[winner]}")
