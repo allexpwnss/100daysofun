@@ -1,0 +1,35 @@
+import random
+
+def game_logic():
+    number_to_be_guessed = random.randint(1, 100)
+    easy_attempts = 10
+    hard_attempts = 5
+    
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100")
+    difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ").lower()
+    
+    attempts = easy_attempts if difficulty == 'easy' else hard_attempts
+    
+    for remaining in range(attempts, 0, -1):
+        print(f"You have {remaining} attempts remaining to guess the number.")
+        try:
+            player_guess = int(input("Make a guess: "))
+        except ValueError:
+            print("Please enter a valid number.")
+            continue
+            
+        if player_guess < number_to_be_guessed:
+            print("Too low!")
+        elif player_guess > number_to_be_guessed:
+            print("Too high!")
+        else:
+            print(f"Correct! The number was {number_to_be_guessed}.")
+            return
+            
+        if remaining > 1:
+            print("Guess again.")
+    
+    print(f"You ran out of lives. The number was {number_to_be_guessed}.")
+
+game_logic()
